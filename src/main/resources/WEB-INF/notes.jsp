@@ -13,7 +13,6 @@
 
 <div class="container mt-5">
     <div class="row">
-        <!-- Note List -->
         <div class="col-md-6">
             <h3>📒 Your Notes</h3>
             <%
@@ -25,19 +24,26 @@
                 <div class="card-body">
                     <h5 class="card-title"><%= note.getTitle() %></h5>
                     <p class="card-text"><%= note.getContent() %></p>
+                    <form action="notes" method="post" style="display:inline;">
+                        <input type="hidden" name="action" value="delete"/>
+                        <input type="hidden" name="id" value="<%= note.getId() %>"/>
+                        <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                    </form>
+
+                    <button type="button" class="btn btn-warning btn-sm" onclick="fillEditForm(<%= note.getId() %>, '<%= note.getTitle() %>', '<%= note.getContent().replace("'", "\\'") %>')">Edit</button>
+                </div>
                 </div>
             </div>
             <%
                 }
             } else {
             %>
-            <div class="alert alert-info">هیچ نوتی ثبت نشده است.</div>
+            <div class="alert alert-info">There is no note</div>
             <%
                 }
             %>
         </div>
 
-        <!-- Add New Note Form -->
         <div class="col-md-6">
             <h3>➕ New Note</h3>
             <form action="notes" method="post" class="p-4 bg-white shadow rounded">

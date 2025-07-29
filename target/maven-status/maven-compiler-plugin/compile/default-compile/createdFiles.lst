@@ -1,0 +1,6 @@
+com/example/notepad/Note.class
+com/example/notepad/NoteService.class
+com/example/notepad/NoteDao.class
+com/example/notepad/JdbcNoteDao.class
+com/example/notepad/NoteServlet.class
+com/example/notepad/NoteDaoInMemory.class
